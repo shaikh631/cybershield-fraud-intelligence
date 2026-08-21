@@ -62,6 +62,7 @@ export function Home() {
       <PublicHeader />
       <main className="home-main">
         <section className="hero section-full" ref={heroRef}>
+          <div className="hero-grid-bg" />
           <SplineHero />
           <motion.div
             className="hero-copy"
