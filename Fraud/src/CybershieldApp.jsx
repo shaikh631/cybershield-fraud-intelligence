@@ -1060,26 +1060,26 @@ export function Simple({ type }) {
     ? users
     : type === "evidence"
       ? [
-          "Email payload",
-          "URL screenshot",
-          "Call recording",
-          "KYC frame",
-          "Claim document",
-          "Transaction receipt",
-        ]
+        "Email payload",
+        "URL screenshot",
+        "Call recording",
+        "KYC frame",
+        "Claim document",
+        "Transaction receipt",
+      ]
       : type === "reports"
         ? [
-            "Case summary · CS-10482",
-            "Monthly fraud posture",
-            "Compliance evidence pack",
-            "Investigator findings",
-          ]
+          "Case summary · CS-10482",
+          "Monthly fraud posture",
+          "Compliance evidence pack",
+          "Investigator findings",
+        ]
         : [
-            "Created Case · CS-10482",
-            "Viewed Alert · AL-10482",
-            "Changed assignment · CS-10481",
-            "Exported report · RP-2219",
-          ];
+          "Created Case · CS-10482",
+          "Viewed Alert · AL-10482",
+          "Changed assignment · CS-10481",
+          "Exported report · RP-2219",
+        ];
   return (
     <AppPage
       eyebrow={type.replace("-", " ").toUpperCase()}
@@ -1198,13 +1198,13 @@ export function Profile({ settings = false }) {
       <div className={settings ? "settings-grid" : "profile-grid"}>
         {(settings
           ? [
-              "Profile",
-              "Security",
-              "Notifications",
-              "Detection thresholds",
-              "Alert preferences",
-              "Appearance",
-            ]
+            "Profile",
+            "Security",
+            "Notifications",
+            "Detection thresholds",
+            "Alert preferences",
+            "Appearance",
+          ]
           : ["Identity", "Security status"]
         ).map((x) => (
           <div className="panel setting-card" key={x}>
