@@ -2735,3 +2735,1309 @@ body.snap-scroll {
 }
 
 }
+
+/* ── Phishing URL Detector page ── */
+.phishing-page {
+  padding: 60px 8% 100px;
+  min-height: calc(100vh - 78px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.phishing-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.phishing-hero-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #9c8cff55;
+  background: radial-gradient(circle, #1e1645, #0c1020 70%);
+  color: #9c8cff;
+  box-shadow: 0 0 50px #9c8cff25;
+}
+.phishing-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin: 0 0 14px;
+}
+.phishing-hero p {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+.phishing-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.phishing-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff06;
+  border: 1px solid var(--line);
+  padding: 0 16px;
+  transition: border-color 0.2s;
+}
+.phishing-input-wrap:focus-within {
+  border-color: #9c8cff;
+  box-shadow: 0 0 20px #9c8cff15;
+}
+.phishing-input-wrap svg {
+  color: #65758b;
+  flex-shrink: 0;
+}
+.phishing-input-wrap input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #e8f0f8;
+  padding: 16px 0;
+  outline: none;
+  font-size: 14px;
+}
+.phishing-input-wrap input::placeholder {
+  color: #506070;
+}
+.phishing-btn {
+  padding: 16px 28px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.phishing-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@keyframes phishing-spin {
+  to { transform: rotate(360deg); }
+}
+.spin {
+  animation: phishing-spin 0.8s linear infinite;
+}
+.phishing-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  background: #ff637f0d;
+  border: 1px solid #ff637f40;
+  color: #ff637f;
+  font-size: 13px;
+}
+.phishing-result {
+  margin-bottom: 56px;
+}
+.phishing-verdict {
+  border: 1px solid;
+  padding: 28px;
+  margin-bottom: 16px;
+}
+.verdict-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+.verdict-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff08;
+}
+.verdict-label {
+  font: 700 11px "DM Mono", monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.verdict-score {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+}
+.verdict-score strong {
+  font-size: 36px;
+  line-height: 1;
+}
+.verdict-score span {
+  color: #78899c;
+  font-size: 13px;
+}
+.verdict-summary {
+  color: #aec0d0;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+.phishing-factors {
+  border: 1px solid var(--line);
+  background: #ffffff04;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.phishing-factors h3,
+.phishing-details h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  margin: 0 0 18px;
+  color: #e0eaf3;
+}
+.phishing-factors h3 svg {
+  color: var(--orange);
+}
+.factors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.factor-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #ffffff05;
+  border: 1px solid #ffffff0a;
+}
+.factor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.factor-name {
+  flex: 1;
+  font-size: 13px;
+  color: #c4d2de;
+}
+.factor-severity {
+  font: 600 10px "DM Mono", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.phishing-details {
+  border: 1px solid var(--line);
+  background: #ffffff04;
+  padding: 24px;
+}
+.phishing-details p {
+  color: #94a6b9;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+.phishing-steps-section {
+  border-top: 1px solid #ffffff0c;
+  padding-top: 56px;
+}
+.phishing-steps-section h2 {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  margin: 0 0 40px;
+}
+.phishing-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.phishing-step {
+  text-align: center;
+  padding: 30px 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #ffffff06, transparent);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.phishing-step:hover {
+  border-color: #9c8cff55;
+  transform: translateY(-3px);
+}
+.step-number {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 16px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #9c8cff18;
+  color: #9c8cff;
+  font: 700 14px "DM Mono", monospace;
+  border: 1px solid #9c8cff40;
+}
+.step-icon-wrap {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+}
+.phishing-step h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.phishing-step p {
+  color: #7e91a5;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .phishing-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .phishing-form {
+    flex-direction: column;
+  }
+}
+
+/* ── Deepfake Detector page ── */
+.deepfake-page {
+  padding: 60px 8% 100px;
+  min-height: calc(100vh - 78px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.deepfake-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.deepfake-hero-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #ff6d8a55;
+  background: radial-gradient(circle, #3a1525, #120c18 70%);
+  color: #ff6d8a;
+  box-shadow: 0 0 50px #ff6d8a20;
+}
+.deepfake-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin: 0 0 14px;
+}
+.deepfake-subtitle {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Upload zone */
+.deepfake-upload-zone {
+  border: 2px dashed var(--line);
+  background: #ffffff03;
+  transition: border-color 0.25s, background 0.25s;
+  margin-bottom: 20px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deepfake-upload-zone.drag-over {
+  border-color: #ff6d8a;
+  background: #ff6d8a08;
+}
+.deepfake-upload-zone.has-preview {
+  border-style: solid;
+  border-color: var(--line);
+}
+.deepfake-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 50px 30px;
+  cursor: pointer;
+  color: #65758b;
+  text-align: center;
+  width: 100%;
+}
+.deepfake-drop:hover {
+  color: #ff6d8a;
+}
+.deepfake-drop strong {
+  color: #c4d2de;
+  font-size: 14px;
+}
+.deepfake-drop small {
+  font-size: 11px;
+}
+
+/* Image preview */
+.deepfake-preview {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.deepfake-preview img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  background: #0a0e14;
+}
+.deepfake-clear {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: #0b1119dd;
+  border: 1px solid #ffffff20;
+  color: #c4d2de;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.deepfake-clear:hover {
+  background: #ff637f22;
+  border-color: #ff637f55;
+  color: #ff637f;
+}
+.deepfake-file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #0d151f;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: #8090a3;
+}
+.deepfake-file-info small {
+  margin-left: auto;
+  color: #5a6a7a;
+}
+
+/* Analyze button */
+.deepfake-action {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.deepfake-btn {
+  padding: 16px 36px;
+  font-size: 13px;
+}
+.deepfake-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Result */
+.deepfake-result {
+  margin-bottom: 56px;
+}
+
+/* Technique results */
+.deepfake-techniques-result {
+  border: 1px solid var(--line);
+  background: #ffffff04;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.deepfake-techniques-result h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  margin: 0 0 18px;
+  color: #e0eaf3;
+}
+.deepfake-techniques-result h3 svg {
+  color: var(--orange);
+}
+.technique-results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.technique-result-card {
+  border: 1px solid;
+  padding: 18px;
+  background: #ffffff04;
+}
+.technique-result-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.technique-result-name {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e0eaf3;
+}
+.technique-result-badge {
+  font: 600 9px "DM Mono", monospace;
+  letter-spacing: 0.12em;
+  padding: 3px 8px;
+  border: 1px solid;
+}
+.technique-result-detail {
+  color: #8595a8;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* How it works */
+.deepfake-how-section {
+  border-top: 1px solid #ffffff0c;
+  padding-top: 56px;
+}
+.deepfake-how-section h2 {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+.deepfake-how-subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.deepfake-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.deepfake-step {
+  text-align: center;
+  padding: 30px 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #ffffff06, transparent);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.deepfake-step:hover {
+  border-color: #ff6d8a44;
+  transform: translateY(-3px);
+}
+.deepfake-step-num {
+  font: 700 22px "DM Mono", monospace;
+  color: #ff6d8a;
+  margin-bottom: 14px;
+}
+.deepfake-step-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  border-radius: 50%;
+  border: 1px solid #39d6ff30;
+  background: #39d6ff08;
+}
+.deepfake-step h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.deepfake-step p {
+  color: #7e91a5;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .deepfake-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .technique-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── AI Voice Detector page ── */
+.voice-page {
+  padding: 60px 8% 100px;
+  min-height: calc(100vh - 78px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.voice-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.voice-hero-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #f4b86055;
+  background: radial-gradient(circle, #3a2a15, #14100a 70%);
+  color: #f4b860;
+  box-shadow: 0 0 50px #f4b86020;
+}
+.voice-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin: 0 0 14px;
+}
+.voice-subtitle {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Upload zone */
+.voice-upload-zone {
+  border: 2px dashed var(--line);
+  background: #ffffff03;
+  transition: border-color 0.25s, background 0.25s;
+  margin-bottom: 20px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.voice-upload-zone.drag-over {
+  border-color: #f4b860;
+  background: #f4b86008;
+}
+.voice-upload-zone.has-file {
+  border-style: solid;
+  border-color: var(--line);
+}
+.voice-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 50px 30px;
+  cursor: pointer;
+  color: #65758b;
+  text-align: center;
+  width: 100%;
+}
+.voice-drop:hover {
+  color: #f4b860;
+}
+.voice-drop strong {
+  color: #c4d2de;
+  font-size: 14px;
+}
+.voice-drop small {
+  font-size: 11px;
+}
+
+/* Waveform */
+.voice-file-preview {
+  width: 100%;
+}
+.voice-waveform {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 24px;
+  background: #0a0e14;
+}
+.waveform-bars {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 80px;
+}
+.waveform-bars .bar {
+  flex: 1;
+  background: #f4b86066;
+  border-radius: 2px;
+  transition: height 0.3s;
+  min-height: 4px;
+}
+.waveform-bars .bar.playing {
+  animation: wavePulse 0.6s ease-in-out infinite alternate;
+  background: #f4b860;
+}
+@keyframes wavePulse {
+  0% { opacity: 0.4; transform: scaleY(0.6); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+.voice-play-btn {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #f4b86055;
+  background: #f4b86015;
+  color: #f4b860;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.voice-play-btn:hover {
+  background: #f4b86025;
+  box-shadow: 0 0 20px #f4b86020;
+}
+.voice-file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #0d151f;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: #8090a3;
+}
+.voice-file-info small {
+  margin-left: auto;
+  color: #5a6a7a;
+}
+.voice-clear {
+  background: none;
+  border: 0;
+  color: #65758b;
+  padding: 4px;
+  display: inline-flex;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.voice-clear:hover {
+  color: #ff637f;
+}
+
+/* Analyze button */
+.voice-action {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.voice-btn {
+  padding: 16px 36px;
+  font-size: 13px;
+}
+.voice-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.voice-result {
+  margin-bottom: 56px;
+}
+
+/* How it works */
+.voice-how-section {
+  border-top: 1px solid #ffffff0c;
+  padding-top: 56px;
+}
+.voice-how-section h2 {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+.voice-how-subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.voice-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.voice-step {
+  text-align: center;
+  padding: 30px 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #ffffff06, transparent);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.voice-step:hover {
+  border-color: #f4b86044;
+  transform: translateY(-3px);
+}
+.voice-step-num {
+  font: 700 22px "DM Mono", monospace;
+  color: #f4b860;
+  margin-bottom: 14px;
+}
+.voice-step-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  border-radius: 50%;
+  border: 1px solid #39d6ff30;
+  background: #39d6ff08;
+}
+.voice-step h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.voice-step p {
+  color: #7e91a5;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .voice-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Insurance Claims Detector page ── */
+.insurance-page {
+  padding: 60px 8% 100px;
+  min-height: calc(100vh - 78px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.insurance-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.insurance-hero-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #58db9a55;
+  background: radial-gradient(circle, #10291d, #08120d 70%);
+  color: #58db9a;
+  box-shadow: 0 0 50px #58db9a20;
+}
+.insurance-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin: 0 0 14px;
+}
+.insurance-subtitle {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Input Form */
+.insurance-form-container {
+  background: #ffffff03;
+  border: 1px solid var(--line);
+  padding: 32px;
+  margin-bottom: 40px;
+}
+.insurance-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+.form-group label {
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: #ffffff05;
+  border: 1px solid var(--line);
+  padding: 12px 16px;
+  color: #e0eaf3;
+  font-family: inherit;
+  font-size: 14px;
+  transition: 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #58db9a;
+  box-shadow: 0 0 15px #58db9a10;
+}
+.insurance-btn {
+  padding: 16px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.insurance-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.insurance-result {
+  margin-bottom: 56px;
+}
+
+/* How it works */
+.insurance-how-section {
+  border-top: 1px solid #ffffff0c;
+  padding-top: 56px;
+}
+.insurance-how-section h2 {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+.insurance-how-subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.insurance-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.insurance-step {
+  text-align: center;
+  padding: 30px 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #ffffff06, transparent);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.insurance-step:hover {
+  border-color: #58db9a44;
+  transform: translateY(-3px);
+}
+.insurance-step-num {
+  font: 700 22px "DM Mono", monospace;
+  color: #58db9a;
+  margin-bottom: 14px;
+}
+.insurance-step-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  border-radius: 50%;
+  border: 1px solid #39d6ff30;
+  background: #39d6ff08;
+}
+.insurance-step h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.insurance-step p {
+  color: #7e91a5;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .insurance-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Credit Card Fraud Detector page ── */
+.card-page {
+  padding: 60px 8% 100px;
+  min-height: calc(100vh - 78px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.card-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.card-hero-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #6eafff55;
+  background: radial-gradient(circle, #0e203b, #070e1a 70%);
+  color: #6eafff;
+  box-shadow: 0 0 50px #6eafff20;
+}
+.card-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin: 0 0 14px;
+}
+.card-subtitle {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Form Styles Extension */
+.card-form {
+  gap: 20px;
+}
+.amount-group .amount-input {
+  display: flex;
+}
+.amount-group select {
+  width: 80px;
+  border-right: none;
+  background: #ffffff0a;
+}
+.amount-group input {
+  flex: 1;
+}
+
+.card-btn {
+  padding: 16px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.card-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.card-result {
+  margin-bottom: 56px;
+}
+
+/* How it works */
+.card-how-section {
+  border-top: 1px solid #ffffff0c;
+  padding-top: 56px;
+}
+.card-how-section h2 {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+.card-how-subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.card-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.card-step {
+  text-align: center;
+  padding: 30px 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #ffffff06, transparent);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.card-step:hover {
+  border-color: #6eafff44;
+  transform: translateY(-3px);
+}
+.card-step-num {
+  font: 700 22px "DM Mono", monospace;
+  color: #6eafff;
+  margin-bottom: 14px;
+}
+.card-step-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  border-radius: 50%;
+  border: 1px solid #39d6ff30;
+  background: #39d6ff08;
+}
+.card-step h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.card-step p {
+  color: #7e91a5;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .card-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Phishing Email Detector page ── */
+.email-page {
+  padding: 60px 8% 100px;
+  min-height: calc(100vh - 78px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.email-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.email-hero-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #39d6ff55;
+  background: radial-gradient(circle, #0e2a3b, #07151f 70%);
+  color: #39d6ff;
+  box-shadow: 0 0 50px #39d6ff20;
+}
+.email-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin: 0 0 14px;
+}
+.email-subtitle {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Mode toggle */
+.email-mode-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.email-mode-toggle button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #ffffff05;
+  border: 1px solid var(--line);
+  color: #8090a3;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 13px;
+  transition: 0.2s;
+}
+.email-mode-toggle button:hover {
+  background: #ffffff0a;
+  color: #e0eaf3;
+}
+.email-mode-toggle button.active {
+  background: #39d6ff15;
+  border-color: #39d6ff;
+  color: #39d6ff;
+}
+
+/* Input Area */
+.email-input-container {
+  margin-bottom: 32px;
+}
+.email-textarea {
+  width: 100%;
+  height: 250px;
+  background: #0a0e14;
+  border: 1px solid var(--line);
+  padding: 24px;
+  color: #e0eaf3;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  line-height: 1.6;
+}
+.email-textarea:focus {
+  border-color: #39d6ff;
+  outline: none;
+  box-shadow: 0 0 15px #39d6ff15;
+}
+
+.email-upload-zone {
+  border: 2px dashed var(--line);
+  background: #ffffff03;
+  transition: 0.25s;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.email-upload-zone.drag-over {
+  border-color: #39d6ff;
+  background: #39d6ff08;
+}
+.email-upload-zone.has-file {
+  border-style: solid;
+  border-color: var(--line);
+  background: #0a0e14;
+}
+.email-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 50px 30px;
+  cursor: pointer;
+  color: #65758b;
+  text-align: center;
+  width: 100%;
+}
+.email-drop:hover {
+  color: #39d6ff;
+}
+.email-drop strong {
+  color: #c4d2de;
+  font-size: 14px;
+}
+.email-drop small {
+  font-size: 11px;
+}
+.email-file-preview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+.email-file-preview img {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+.email-file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  background: #0d151f;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  font-size: 12px;
+  color: #8090a3;
+}
+.email-clear {
+  background: none;
+  border: 0;
+  color: #65758b;
+  padding: 2px;
+  display: inline-flex;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.email-clear:hover {
+  color: #ff637f;
+}
+
+.email-action {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.email-btn {
+  padding: 16px 36px;
+  font-size: 14px;
+}
+.email-result {
+  margin-bottom: 56px;
+}
+
+/* How it works */
+.email-how-section {
+  border-top: 1px solid #ffffff0c;
+  padding-top: 56px;
+}
+.email-how-section h2 {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+.email-how-subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.email-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.email-step {
+  text-align: center;
+  padding: 30px 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #ffffff06, transparent);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.email-step:hover {
+  border-color: #39d6ff44;
+  transform: translateY(-3px);
+}
+.email-step-num {
+  font: 700 22px "DM Mono", monospace;
+  color: #39d6ff;
+  margin-bottom: 14px;
+}
+.email-step-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  border-radius: 50%;
+  border: 1px solid #39d6ff30;
+  background: #39d6ff15;
+}
+.email-step h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.email-step p {
+  color: #7e91a5;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .email-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
