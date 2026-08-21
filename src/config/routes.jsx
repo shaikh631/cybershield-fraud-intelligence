@@ -1,14 +1,18 @@
-import {
-  AuthFlow,
-  ForgotPassword,
-  Verification,
-} from "../pages/auth/AuthPages";
+import { AuthFlow, ForgotPassword, Verification } from "../pages/auth/AuthPages";
 import { Home } from "../pages/public/Home";
 import { Platform } from "../pages/public/Platform";
 import { Modules } from "../pages/public/Modules";
 import { Security } from "../pages/public/Security";
 import { About } from "../pages/public/About";
 import { Contact } from "../pages/public/Contact";
+
+import { PhishingUrl } from "../pages/public/PhishingUrl";
+import { DeepfakeDetector } from "../pages/public/DeepfakeDetector";
+import { VoiceDetector } from "../pages/public/VoiceDetector";
+import { InsuranceDetector } from "../pages/public/InsuranceDetector";
+import { CardDetector } from "../pages/public/CardDetector";
+import { EmailDetector } from "../pages/public/EmailDetector";
+
 import { Dashboard } from "../pages/dashboard/Dashboard";
 import { AlertsPage } from "../pages/alerts/AlertsPage";
 import { AlertDetails } from "../pages/alerts/AlertDetails";
@@ -26,6 +30,12 @@ export const PUBLIC_ROUTES = {
   "/security": Security,
   "/about": About,
   "/contact": Contact,
+  "/detections/url": PhishingUrl,
+  "/detections/deepfake": DeepfakeDetector,
+  "/detections/voice": VoiceDetector,
+  "/detections/insurance": InsuranceDetector,
+  "/detections/card": CardDetector,
+  "/detections/email": EmailDetector,
 };
 
 export const AUTH_ROUTES = {
