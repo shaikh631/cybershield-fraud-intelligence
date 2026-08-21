@@ -25,7 +25,11 @@ export function Home() {
               loss.
             </p>
             <div className="hero-actions">
-              <Button icon={ArrowRight} onClick={() => go("/contact")}>
+              <Button
+                className="header-demo-button"
+                icon={ArrowRight}
+                onClick={() => go("/contact")}
+              >
                 Request a demo
               </Button>
               <Button
@@ -109,7 +113,7 @@ export function Home() {
             ))}
           </div>
         </section>
-        <section className="section band">
+        <section className="section workflow-band">
           <Title
             eyebrow="INVESTIGATION WORKFLOW"
             title="From detection to resolution."

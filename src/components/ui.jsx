@@ -5,10 +5,11 @@ export function Button({
   children,
   variant = "primary",
   icon: Icon,
+  className = "",
   ...props
 }) {
   return (
-    <button className={`button button-${variant}`} {...props}>
+    <button className={`button button-${variant} ${className}`.trim()} {...props}>
       {Icon && <Icon size={16} />}
       {children}
     </button>

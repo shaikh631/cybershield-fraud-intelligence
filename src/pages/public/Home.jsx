@@ -60,7 +60,7 @@ export function Home() {
   return (
     <div className="public-page">
       <PublicHeader />
-      <main>
+      <main className="home-main">
         <section className="hero section-full" ref={heroRef}>
           <SplineHero />
           <motion.div
@@ -83,7 +83,11 @@ export function Home() {
               loss.
             </p>
             <div className="hero-actions">
-              <Button icon={ArrowRight} onClick={() => navigate("/contact")}>
+              <Button
+                className="header-demo-button"
+                icon={ArrowRight}
+                onClick={() => navigate("/contact")}
+              >
                 Request a demo
               </Button>
               <Button
@@ -101,34 +105,42 @@ export function Home() {
           </motion.div>
         </section>
 
-        <section className="section section-full">
+        <section className="section section-full pairing-section">
           <motion.div className="section-title" {...fadeUp}>
             <div>
-              <span className="eyebrow">THE PROBLEM</span>
-              <h2>Fraud doesn't happen in silos.</h2>
+              <span className="eyebrow">THE SIGNAL FLOW</span>
+              <h2>One case connects every signal.</h2>
               <p>
-                Attackers move across channels. Cybershield connects the signals
-                so your team can see one campaign, not six disconnected alerts.
+                Attackers move across channels. Cybershield turns six disconnected
+                alerts into one connected fraud campaign.
               </p>
             </div>
           </motion.div>
-          <motion.div className="merge" {...fadeUp}>
-            <div>
-              {detectionModules.map((module) => (
-                <div className="merge-signal" key={module.key}>
-                  <module.icon size={17} style={{ color: module.color }} />
-                  <span>{module.name}</span>
-                  <small>signal detected</small>
+          <motion.div className="pairing-flow" {...fadeUp}>
+            <div className="pairing-track">
+              {detectionModules.map((module, index) => (
+                <div className="pairing-step" key={module.key}>
+                  <div className="pairing-icon">
+                    <module.icon size={19} />
+                  </div>
+                  <span className="pairing-number">0{index + 1}</span>
+                  <strong>{module.name}</strong>
+                  <small>Signal detected</small>
                 </div>
               ))}
             </div>
-            <div className="merge-result">
+            <div className="pairing-result">
               <Network size={23} />
               <div>
-                <strong>ONE UNIFIED CASE</strong>
-                <small>4 alerts correlated · 96% confidence</small>
+                <span>KEY POINT</span>
+                <p>The signals are connected into one unified case for faster investigation and a clear audit trail.</p>
               </div>
-              <Badge tone="critical">Critical</Badge>
+            </div>
+            <div className="pairing-footer">
+              <span>Ready to investigate the full picture?</span>
+              <Button variant="dark" icon={ArrowRight} onClick={() => navigate("/login")}>
+                Enter workspace
+              </Button>
             </div>
           </motion.div>
         </section>
@@ -147,41 +159,55 @@ export function Home() {
               View all modules <ArrowRight size={14} />
             </Link>
           </motion.div>
-          <div className="module-grid">
-            {detectionModules.map((module, index) => (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: index * 0.06 }}
-                whileHover={{ y: -5 }}
-                className="module-card"
-                style={{ "--module": module.color }}
-                key={module.key}
-              >
-                <div className="module-icon">
-                  <module.icon size={20} />
-                </div>
-                <div className="module-top">
-                  <span>0{index + 1}</span>
-                  <Badge tone={module.score > 92 ? "critical" : "high"}>
-                    {module.score} risk
-                  </Badge>
-                </div>
-                <h3>{module.name}</h3>
-                <p>{module.description}</p>
-                <div className="meter">
-                  <span style={{ width: `${module.score}%` }} />
-                </div>
-                <Link to={`/detections/${module.key}`} className="arrow-link">
-                  View module <ArrowRight size={14} />
-                </Link>
-              </motion.div>
-            ))}
+          <div className="module-carousel-viewport">
+            <div className="module-grid module-carousel-track">
+              {[...detectionModules, ...detectionModules].map(
+                (module, index) => {
+                  const cardIndex = index % detectionModules.length;
+                  const isClone = index >= detectionModules.length;
+
+                  return (
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.5, delay: cardIndex * 0.06 }}
+                      whileHover={{ y: -5 }}
+                      className="module-card"
+                      style={{ "--module": module.color }}
+                      key={`${module.key}-${isClone ? "clone" : "original"}`}
+                      aria-hidden={isClone}
+                    >
+                      <div className="module-icon">
+                        <module.icon size={20} />
+                      </div>
+                      <div className="module-top">
+                        <span>0{cardIndex + 1}</span>
+                        <Badge tone={module.score > 92 ? "critical" : "high"}>
+                          {module.score} risk
+                        </Badge>
+                      </div>
+                      <h3>{module.name}</h3>
+                      <p>{module.description}</p>
+                      <div className="meter">
+                        <span style={{ width: `${module.score}%` }} />
+                      </div>
+                      <Link
+                        to={`/detections/${module.key}`}
+                        className="arrow-link"
+                        tabIndex={isClone ? -1 : 0}
+                      >
+                        View module <ArrowRight size={14} />
+                      </Link>
+                    </motion.div>
+                  );
+                },
+              )}
+            </div>
           </div>
         </section>
 
-        <section className="section band section-full">
+        <section className="section band section-full workflow-band">
           <motion.div className="section-title" {...fadeUp}>
             <div>
               <span className="eyebrow">INVESTIGATION WORKFLOW</span>
