@@ -3,7 +3,6 @@ import { ArrowRight, ChevronRight, Network, Play } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { Badge, Button } from "../../components/ui";
-import { SplineHero } from "../../components/SplineHero";
 import { detectionModules } from "../../data/mockData";
 import { PublicFooter } from "../../Component/PublicFooter";
 import { PublicHeader } from "../../Component/PublicHeader";
@@ -65,7 +64,6 @@ export function Home() {
           <div className="hero-backdrop" aria-hidden="true">
             <span className="hero-scanline" />
           </div>
-          <SplineHero  />
           <motion.div
             className="hero-copy"
             initial={{ opacity: 0, x: -30 }}
