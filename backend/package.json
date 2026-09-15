@@ -4,6 +4,10 @@
   "description": "Secure REST API for CyberShield Fraud Intelligence",
   "type": "module",
   "main": "server.js",
+  "engines": {
+    "node": ">=20 <23",
+    "npm": ">=10"
+  },
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
