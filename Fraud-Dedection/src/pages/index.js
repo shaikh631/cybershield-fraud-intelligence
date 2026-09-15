@@ -1,0 +1,13 @@
+export { default as Home } from "./public/Home";
+export { default as Platform } from "./public/Platform";
+export { default as Modules } from "./public/Modules";
+export { default as Security } from "./public/Security";
+export { default as About } from "./public/About";
+export { default as Contact } from "./public/Contact";
+export { default as Dashboard } from "./dashboard/Dashboard";
+export { default as AlertsPage } from "./alerts/AlertsPage";
+export { default as AlertDetails } from "./alerts/AlertDetails";
+export { default as Detection } from "./detections/Detection";
+export { default as Correlation } from "./correlation/Correlation";
+export { default as Cases } from "./cases/Cases";
+export { default as Profile } from "./account/Profile";
