@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { alerts, cases, users } from "../../Fraud-Dedection/src/data/mockData.js";
+import { alerts, cases, users } from "./mockData.js";
 
 const accounts = new Map(
   [

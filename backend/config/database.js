@@ -3,7 +3,7 @@ import { env } from "./env.js";
 import { User } from "../models/User.js";
 import { Alert } from "../models/Alert.js";
 import { Case } from "../models/Case.js";
-import { alerts, cases, users } from "../../Fraud-Dedection/src/data/mockData.js";
+import { alerts, cases, users } from "../data/mockData.js";
 import bcrypt from "bcrypt";
 
 export async function connectDatabase() {
